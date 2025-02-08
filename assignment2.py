@@ -1,16 +1,15 @@
 # Program Name: Assignment2.py
-# Course: IT3883/Section XXX
-# Student Name: John Doe
-# Assignment Number: Lab#
-# Due Date: xx/xx/20XX
-# Purpose: This program calculates the average score for a list of students based on their provided scores and displays the results in descending order of average.
-# List Specific resources used to complete the assignment: Python Standard Library
+# Course: Adv Application Development Section W02
+# Student Name: Foster North
+# Assignment Number: Lab2
+# Due Date: 2/07/2025
+# Purpose: This program finds and lists the averages of students based on input from the input.txt file.
 
 def calculate_averages(filename):
     with open(filename, 'r') as file:
         student_scores = file.readlines()
 
-    # Creating a list to store the name and average score
+    # creates a list to store the students scores and average them
     averages = []
     for score in student_scores:
         parts = score.split()
@@ -19,12 +18,12 @@ def calculate_averages(filename):
         average = sum(scores) / len(scores)  # Calculate average
         averages.append((name, average))
 
-    # Sort the list by the average score in descending order
+    # sorts the scores from the highest down
     averages.sort(key=lambda x: x[1], reverse=True)
     
-    # Print the results
+    # prints the results from the line above
     for name, average in averages:
         print(f"{name} {average:.2f}")
 
-# Calling the function with the provided file name
+# calls the text file for the input given in the assignment instructions
 calculate_averages('input.txt')
